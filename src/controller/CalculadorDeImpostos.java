@@ -5,7 +5,8 @@ import entities.Orcamento;
 public class CalculadorDeImpostos {
 	
 	public void realizaCalculo(Imposto imposto, Orcamento orcamento) {
-		imposto.calculaImposto(orcamento);
+		double valor = imposto.calculaImposto(orcamento);
+		System.out.println(valor);
 	}
 	
 }
