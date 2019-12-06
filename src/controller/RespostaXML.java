@@ -9,6 +9,10 @@ public class RespostaXML implements Resposta{
 
 	private Resposta res;
 
+	public RespostaXML(Resposta res) {
+		this.res = res;
+	}
+
 	@Override
 	public void responde(Requisicao req, Conta conta) {
 		if(req.getFormato() == Formato.XML) {

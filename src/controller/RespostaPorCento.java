@@ -9,6 +9,10 @@ public class RespostaPorCento implements Resposta{
 
 	private Resposta res;
 
+	public RespostaPorCento(Resposta res) {
+		this.res = res;
+	}
+
 	@Override
 	public void responde(Requisicao req, Conta conta) {
 		if(req.getFormato() == Formato.PORCENTO) {

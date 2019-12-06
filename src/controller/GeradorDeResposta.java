@@ -7,15 +7,11 @@ import entities.Resposta;
 public class GeradorDeResposta {
 	
 	public void responde(Requisicao req, Conta conta) {
-		Resposta r1 = new RespostaCSV();
-		Resposta r2 = new RespostaXML();
-		Resposta r3 = new RespostaPorCento();
 		Resposta r4 = new SemResposta();
- 		
-		r1.setProxima(r2);
-		r2.setProxima(r3);
-		r3.setProxima(r4);
-	
+		Resposta r3 = new RespostaPorCento(r4);
+		Resposta r2 = new RespostaXML(r3);
+		Resposta r1 = new RespostaCSV(r2);
+		
 		r1.responde(req, conta);
 	}
 

@@ -8,7 +8,11 @@ import entities.Resposta;
 public class RespostaCSV implements Resposta{
 
 	private Resposta res;
-
+	
+	public RespostaCSV(Resposta res) {
+		this.res = res;
+	}
+	
 	@Override
 	public void responde(Requisicao req, Conta conta) {
 		if(req.getFormato() == Formato.CSV) {
