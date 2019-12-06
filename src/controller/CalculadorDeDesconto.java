@@ -1,18 +1,21 @@
 package controller;
 
+import entities.Desconto;
 import entities.Orcamento;
 
-public class CalculadorDeDesconto {
+public class CalculadorDeDesconto{
 	
 	public double calcula(Orcamento orcamento) {
-		//separando as responsabilidades
-		double desconto = new DescontoPorCincoItens().desonta(orcamento);
-		if(desconto == 0)
-			desconto = new DescontoPorMaisDeQuinhentosReais().desconta(orcamento);
-		//caso contrario... sem desconto
-		return 0;
+		//instancia descontos
+		Desconto d1 = new DescontoPorCincoItens();
+		Desconto d2 = new DescontoPorMaisDeQuinhentosReais();
+		Desconto d3 = new SemDesconto();
+		
+		//seta o proximo desconto a ser chamado caso a condicao nao seja verdadeira
+		d1.setProximo(d2);
+		d2.setProximo(d3);
+		
+		//inicia a cadeia de verificacao de desconto. 
+		return d1.desconta(orcamento);
 	}
-	
-	
-	//problema: a cada nova regra de negocio mais um if será adicionado
 }
