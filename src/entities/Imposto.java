@@ -2,20 +2,19 @@ package entities;
 
 public abstract class Imposto {
 	
-	protected Imposto outroImposto;
+	private final Imposto outroImposto;
 	
 	public Imposto(Imposto outroImposto) {
 		this.outroImposto = outroImposto;
 	}
 
 	public Imposto() {
-		
+		outroImposto = null;
 	}
 	
 	public abstract double calculaImposto(Orcamento orcamento);
 	
-	protected double calculoDoOutroImposto(Orcamento orcamento) {
-		if (outroImposto == null) return 0;
-		return outroImposto.calculaImposto(orcamento);
+	protected double calculaOutroImposto(Orcamento orcamento) {
+		return outroImposto == null ? 0 : outroImposto.calculaImposto(orcamento);
 	}
 }

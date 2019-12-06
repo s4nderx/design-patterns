@@ -8,9 +8,9 @@ public abstract class TemplateDeImpostoCondicional extends Imposto{
 	@Override
 	public double calculaImposto(Orcamento orcamento) {
 		if(deveUsarMaximaTaxacao(orcamento)) {
-			return maximaTaxacao(orcamento) + calculoDoOutroImposto(orcamento);
+			return maximaTaxacao(orcamento) + calculaOutroImposto(orcamento);
 		} else {
-			return minimaTaxacao(orcamento) + calculoDoOutroImposto(orcamento);
+			return minimaTaxacao(orcamento) + calculaOutroImposto(orcamento);
 		}
 	}
 

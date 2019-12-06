@@ -7,11 +7,12 @@ public class ICMS extends Imposto {
 	}
 
 	public ICMS() {
+		super();
 	}
 
 	@Override
 	public double calculaImposto(Orcamento orcamento) {
-		return orcamento.getValor() * 0.1;
+		return orcamento.getValor() * 0.1 + calculaOutroImposto(orcamento);
 	}
 
 }
