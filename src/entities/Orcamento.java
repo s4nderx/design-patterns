@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 public class Orcamento {
 
 	private final double valor;
@@ -17,15 +18,21 @@ public class Orcamento {
 	public double getValor() {
 		return valor;
 	}
-	
+
 	public void adicionaItem(Item item) {
 		this.itens.add(item);
 	}
-	
+
 	public List<Item> getItens() {
 		return Collections.unmodifiableList(itens);
 	}
 
-	
-	
+	public boolean contemItem(String nomeDoItem) {
+		for (Item item : itens) {
+			if (item.getNome().equals(nomeDoItem))
+				return true;
+		}
+		return false;
+	}
+
 }
