@@ -1,7 +1,21 @@
 package entities;
 
-public interface Imposto {
+public abstract class Imposto {
 	
-	public double calculaImposto(Orcamento orcamento);
+	protected Imposto outroImposto;
 	
+	public Imposto(Imposto outroImposto) {
+		this.outroImposto = outroImposto;
+	}
+
+	public Imposto() {
+		
+	}
+	
+	public abstract double calculaImposto(Orcamento orcamento);
+	
+	protected double calculoDoOutroImposto(Orcamento orcamento) {
+		if (outroImposto == null) return 0;
+		return outroImposto.calculaImposto(orcamento);
+	}
 }

@@ -3,14 +3,14 @@ package controller;
 import entities.Imposto;
 import entities.Orcamento;
 
-public abstract class TemplateDeImpostoCondicional implements Imposto{
+public abstract class TemplateDeImpostoCondicional extends Imposto{
 
 	@Override
 	public double calculaImposto(Orcamento orcamento) {
 		if(deveUsarMaximaTaxacao(orcamento)) {
-			return maximaTaxacao(orcamento);
+			return maximaTaxacao(orcamento) + calculoDoOutroImposto(orcamento);
 		} else {
-			return minimaTaxacao(orcamento);
+			return minimaTaxacao(orcamento) + calculoDoOutroImposto(orcamento);
 		}
 	}
 

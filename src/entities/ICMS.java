@@ -1,6 +1,13 @@
 package entities;
 
-public class ICMS implements Imposto {
+public class ICMS extends Imposto {
+
+	public ICMS(Imposto outroImposto) {
+		super(outroImposto);
+	}
+
+	public ICMS() {
+	}
 
 	@Override
 	public double calculaImposto(Orcamento orcamento) {

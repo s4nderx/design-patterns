@@ -3,6 +3,10 @@ package entities;
 import controller.TemplateDeImpostoCondicional;
 
 public class ICPP extends TemplateDeImpostoCondicional {
+	
+	public ICPP() {
+		super();
+	}
 
 	@Override
 	public double minimaTaxacao(Orcamento orcamento) {
