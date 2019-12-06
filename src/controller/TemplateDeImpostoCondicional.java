@@ -5,6 +5,14 @@ import entities.Orcamento;
 
 public abstract class TemplateDeImpostoCondicional extends Imposto{
 
+	public TemplateDeImpostoCondicional() {
+		super();
+	}
+
+	public TemplateDeImpostoCondicional(Imposto outroImposto) {
+		super(outroImposto);
+	}
+
 	@Override
 	public double calculaImposto(Orcamento orcamento) {
 		if(deveUsarMaximaTaxacao(orcamento)) {
